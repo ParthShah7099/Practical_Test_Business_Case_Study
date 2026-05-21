@@ -1,0 +1,113 @@
+================================================================================
+  DATA_DICTIONARY.txt
+  Dataset: RetailTransactions.csv
+  Project: Sales Uplift — Strategy Insights from Multi-Region Retail Data
+================================================================================
+
+COLUMN 1 — TransactionID
+  Data Type   : VARCHAR(12)
+  Nullable    : NO (Primary Key)
+  Format      : TXN + 7-digit zero-padded number (e.g., TXN0000001)
+  Description : Globally unique identifier for each transaction
+  Use In SQL  : JOIN key, COUNT for transaction volume metrics
+
+COLUMN 2 — Date
+  Data Type   : DATE (YYYY-MM-DD)
+  Nullable    : NO
+  Range       : 2023-01-01 to 2025-12-31
+  Description : Transaction date. Use for time-series, seasonality, YoY analysis
+  Use In SQL  : GROUP BY YEAR(), MONTH() | WHERE for date range filters
+  Note        : Import as DATE type, not VARCHAR, for time intelligence to work
+
+COLUMN 3 — ProductName
+  Data Type   : VARCHAR(100)
+  Nullable    : NO
+  Cardinality : 90 unique products
+  Examples    : iPhone 15 Pro, MacBook Air M3, Basmati Rice 5kg, Yoga Mat Premium
+  Description : Full display name of the product sold
+  Use In SQL  : GROUP BY for SKU-level revenue; TOP N queries
+
+COLUMN 4 — Category
+  Data Type   : VARCHAR(50)
+  Nullable    : NO
+  Values      : Electronics | Fashion | Grocery | Furniture | Sports |
+                Beauty | Appliances | Stationery | Toys | Accessories
+  Description : Product category for vertical-level performance analysis
+  Use In SQL  : GROUP BY Category for category trend analysis
+
+COLUMN 5 — Region
+  Data Type   : VARCHAR(20)
+  Nullable    : NO
+  Values      : East | West | North | South
+  Description : Geographic market region of the transaction
+  Use In SQL  : GROUP BY Region for regional KPIs; WHERE for regional filter
+
+COLUMN 6 — SalesChannel
+  Data Type   : VARCHAR(15)
+  Nullable    : NO
+  Values      : Online | Offline
+  Description : Whether the transaction occurred via e-commerce or physical store
+  Use In SQL  : CASE WHEN for pivot; GROUP BY for channel comparison
+
+COLUMN 7 — Quantity
+  Data Type   : SMALLINT (1–5)
+  Nullable    : NO
+  Constraint  : CHECK (Quantity > 0)
+  Description : Number of units purchased in this transaction
+  Use In SQL  : SUM(Quantity) for demand volume; AVG for basket size
+
+COLUMN 8 — UnitPrice
+  Data Type   : DECIMAL(12,2)
+  Nullable    : NO
+  Range       : ₹99 (stationery) to ₹1,49,999 (MacBook)
+  Description : Price per single unit in Indian Rupees (₹)
+  Note        : Prices include realistic inflation (~4% annual increase in dataset)
+  Use In SQL  : AVG(UnitPrice) per product for pricing analysis
+
+COLUMN 9 — TotalAmount
+  Data Type   : DECIMAL(14,2)
+  Nullable    : NO
+  Formula     : TotalAmount = Quantity × UnitPrice
+  Description : Gross transaction value in Indian Rupees (₹)
+  Use In SQL  : SUM(TotalAmount) = Revenue | AVG(TotalAmount) = AOV
+
+COLUMN 10 — PaymentMode
+  Data Type   : VARCHAR(20)
+  Nullable    : NO
+  Values      : UPI | Credit Card | Cash | Net Banking
+  Distribution: UPI 35% | Credit Card 28% | Cash 22% | Net Banking 15%
+  Description : Payment method used for this transaction
+  Use In SQL  : GROUP BY PaymentMode for payment preference analysis
+
+COLUMN 11 — CustomerID
+  Data Type   : VARCHAR(12)
+  Nullable    : NO
+  Format      : CUST + 5-digit zero-padded number (e.g., CUST00001)
+  Cardinality : 12,000 unique customers
+  Note        : ~500 high-value customers (CUST00001–CUST00500) have higher
+                purchase frequency; 6,251 customers made 10+ purchases
+  Use In SQL  : COUNT/GROUP BY for loyalty analysis; HAVING COUNT > 10
+
+================================================================================
+  BUSINESS METRICS DERIVED FROM DATASET
+================================================================================
+
+  Metric                | Value (Full Dataset)
+  ----------------------|----------------------------
+  Total Revenue         | ₹2,376,584,898
+  Total Transactions    | 150,000
+  Unique Customers      | 12,000
+  Avg Order Value       | ₹15,844
+  Online Revenue Share  | 45.2% (growing to 54.9% by Dec 2025)
+  Loyal Customers (>10x)| 6,251 (52.1% repeat rate)
+  Date Range            | Jan 2023 – Dec 2025 (36 months)
+  Peak Month Revenue    | ₹72.3M (October 2025)
+  Top Region            | West (₹843M, 35.5% share)
+  Top Product           | iPhone 15 Pro (₹240.6M)
+  Top Category          | Electronics (₹1.46B, 61.4%)
+  Fastest Growing Cat.  | Beauty (+9.1% 2-year growth)
+  Fastest Declining Cat.| Appliances (-7.7% 2-year decline)
+
+================================================================================
+  END OF DATA_DICTIONARY.txt
+================================================================================

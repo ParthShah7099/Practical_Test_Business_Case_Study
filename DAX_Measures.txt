@@ -1,0 +1,294 @@
+================================================================================
+  DAX_MEASURES.txt — POWER BI DAX MEASURES
+  Project: Sales Uplift: Strategy Insights from Multi-Region Retail Data
+  All measures designed for RetailTransactions table in Power BI Desktop
+================================================================================
+
+── TABLE: RetailTransactions ───────────────────────────────────────────────────
+  Columns used: TransactionID, Date, ProductName, Category, Region,
+                SalesChannel, Quantity, UnitPrice, TotalAmount,
+                PaymentMode, CustomerID
+───────────────────────────────────────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 1 — CORE KPI MEASURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// [1] Total Sales Revenue
+Total Sales =
+    SUM ( RetailTransactions[TotalAmount] )
+
+// [2] Total Transactions
+Total Transactions =
+    COUNTROWS ( RetailTransactions )
+
+// [3] Average Order Value
+Avg Order Value =
+    DIVIDE (
+        [Total Sales],
+        [Total Transactions],
+        0
+    )
+
+// [4] Total Units Sold
+Total Units Sold =
+    SUM ( RetailTransactions[Quantity] )
+
+// [5] Unique Customers
+Unique Customers =
+    DISTINCTCOUNT ( RetailTransactions[CustomerID] )
+
+// [6] Unique Products
+Unique Products =
+    DISTINCTCOUNT ( RetailTransactions[ProductName] )
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 2 — TIME INTELLIGENCE MEASURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// [7] Sales Previous Month
+Sales Previous Month =
+    CALCULATE (
+        [Total Sales],
+        PREVIOUSMONTH ( 'DateTable'[Date] )
+    )
+
+// [8] Month-over-Month Growth %
+MoM Growth % =
+    VAR CurrentSales  = [Total Sales]
+    VAR PreviousSales = [Sales Previous Month]
+    RETURN
+        DIVIDE (
+            CurrentSales - PreviousSales,
+            PreviousSales,
+            BLANK()
+        )
+
+// [9] Sales Previous Year (Same Period)
+Sales Previous Year =
+    CALCULATE (
+        [Total Sales],
+        SAMEPERIODLASTYEAR ( 'DateTable'[Date] )
+    )
+
+// [10] Year-over-Year Growth %
+YoY Growth % =
+    DIVIDE (
+        [Total Sales] - [Sales Previous Year],
+        [Sales Previous Year],
+        BLANK()
+    )
+
+// [11] YTD Sales
+YTD Sales =
+    TOTALYTD ( [Total Sales], 'DateTable'[Date] )
+
+// [12] Rolling 3-Month Sales
+Sales Rolling 3M =
+    CALCULATE (
+        [Total Sales],
+        DATESINPERIOD (
+            'DateTable'[Date],
+            LASTDATE ( 'DateTable'[Date] ),
+            -3,
+            MONTH
+        )
+    )
+
+// [13] Last Quarter Sales
+Last Quarter Sales =
+    CALCULATE (
+        [Total Sales],
+        PREVIOUSQUARTER ( 'DateTable'[Date] )
+    )
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 3 — REGION & CONTRIBUTION MEASURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// [14] Region Contribution %
+Region Contribution % =
+    DIVIDE (
+        [Total Sales],
+        CALCULATE ( [Total Sales], ALL ( RetailTransactions[Region] ) ),
+        0
+    )
+
+// [15] Region Rank by Revenue
+Region Revenue Rank =
+    RANKX (
+        ALLSELECTED ( RetailTransactions[Region] ),
+        [Total Sales],
+        ,
+        DESC,
+        DENSE
+    )
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 4 — CHANNEL MEASURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// [16] Online Sales
+Online Sales =
+    CALCULATE (
+        [Total Sales],
+        RetailTransactions[SalesChannel] = "Online"
+    )
+
+// [17] Offline Sales
+Offline Sales =
+    CALCULATE (
+        [Total Sales],
+        RetailTransactions[SalesChannel] = "Offline"
+    )
+
+// [18] Online Sales % (of total)
+Online Sales % =
+    DIVIDE (
+        [Online Sales],
+        [Total Sales],
+        0
+    )
+
+// [19] Online Order Count
+Online Orders =
+    CALCULATE (
+        [Total Transactions],
+        RetailTransactions[SalesChannel] = "Online"
+    )
+
+// [20] Online vs Offline Variance
+Channel Revenue Gap =
+    [Online Sales] - [Offline Sales]
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 5 — CUSTOMER MEASURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// [21] Loyal Customers (>10 purchases)
+Loyal Customers Count =
+    COUNTROWS (
+        FILTER (
+            SUMMARIZE (
+                RetailTransactions,
+                RetailTransactions[CustomerID],
+                "PurchaseCount", COUNTROWS ( RetailTransactions )
+            ),
+            [PurchaseCount] > 10
+        )
+    )
+
+// [22] Customer Repeat Rate
+Customer Repeat Rate % =
+    DIVIDE (
+        [Loyal Customers Count],
+        [Unique Customers],
+        0
+    )
+
+// [23] Revenue per Customer
+Revenue Per Customer =
+    DIVIDE (
+        [Total Sales],
+        [Unique Customers],
+        0
+    )
+
+// [24] Top Customer Revenue (single highest spender)
+Top Customer Revenue =
+    MAXX (
+        SUMMARIZE (
+            RetailTransactions,
+            RetailTransactions[CustomerID],
+            "CustRev", [Total Sales]
+        ),
+        [CustRev]
+    )
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 6 — PRODUCT MEASURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// [25] Top 5 Product Revenue
+Top 5 Products Revenue =
+    CALCULATE (
+        [Total Sales],
+        TOPN (
+            5,
+            VALUES ( RetailTransactions[ProductName] ),
+            [Total Sales],
+            DESC
+        )
+    )
+
+// [26] Product Revenue Rank
+Product Revenue Rank =
+    RANKX (
+        ALLSELECTED ( RetailTransactions[ProductName] ),
+        [Total Sales],
+        ,
+        DESC,
+        DENSE
+    )
+
+// [27] Category Contribution %
+Category Contribution % =
+    DIVIDE (
+        [Total Sales],
+        CALCULATE ( [Total Sales], ALL ( RetailTransactions[Category] ) ),
+        0
+    )
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 7 — CONDITIONAL / ALERT MEASURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// [28] Sales Target Achievement % (assumes target = 70M/month)
+Sales vs Target % =
+    VAR MonthlyTarget = 70000000
+    RETURN
+        DIVIDE ( [Total Sales], MonthlyTarget, 0 )
+
+// [29] MoM Growth Label (for conditional formatting)
+MoM Growth Label =
+    VAR GrowthPct = [MoM Growth %]
+    RETURN
+        IF ( GrowthPct > 0, "▲ " & FORMAT ( GrowthPct, "0.0%" ),
+        IF ( GrowthPct < 0, "▼ " & FORMAT ( GrowthPct, "0.0%" ),
+             "→ 0.0%" ) )
+
+// [30] KPI Card — Formatted Total Sales
+Total Sales Formatted =
+    "₹" & FORMAT ( [Total Sales] / 1000000, "#,##0.0" ) & "M"
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 8 — DATE TABLE (add as calculated table)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DateTable =
+ADDCOLUMNS (
+    CALENDARAUTO(),
+    "Year",         YEAR ( [Date] ),
+    "Month Number", MONTH ( [Date] ),
+    "Month Name",   FORMAT ( [Date], "MMMM" ),
+    "Month Short",  FORMAT ( [Date], "MMM" ),
+    "Quarter",      "Q" & QUARTER ( [Date] ),
+    "Year-Month",   FORMAT ( [Date], "YYYY-MM" ),
+    "Week Number",  WEEKNUM ( [Date] ),
+    "Day Name",     FORMAT ( [Date], "DDDD" ),
+    "Is Weekend",   IF ( WEEKDAY ( [Date], 2 ) >= 6, TRUE, FALSE )
+)
+
+// Mark DateTable as Date Table via:
+// Table Tools → Mark as Date Table → Select [Date] column
+
+================================================================================
+  END OF DAX_MEASURES.txt
+================================================================================

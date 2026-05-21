@@ -1,0 +1,182 @@
+================================================================================
+  EXECUTIVE_REPORT.txt
+  CONFIDENTIAL — STRATEGIC ANALYTICS REPORT
+  Sales Uplift: Strategy Insights from Multi-Region Retail Data
+  Prepared by: Senior Data Analyst | Red & White Skill Education
+  Period: January 2023 – December 2025 | Dataset: 150,000 Transactions
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXECUTIVE SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Over the 36-month analysis period, the company executed 150,000 transactions
+generating ₹2.376 Billion in gross revenue across 4 regions, 10 product
+categories, and 2 sales channels. The business demonstrates strong fundamentals
+with consistent monthly revenue averaging ₹66M, a growing online channel
+(35% → 55% share), and a deeply loyal customer base where 52% of customers
+repurchased 10+ times.
+
+Three strategic imperatives emerge from this analysis:
+  1. PROTECT AND GROW West/East markets while aggressively expanding North
+  2. INVEST in Beauty, Fashion, and Sports — the growth verticals
+  3. ACCELERATE digital transformation to capture the online revenue majority
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FINDING 1 — REVENUE PERFORMANCE & TRAJECTORY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Total Revenue      : ₹2,376,584,898  (~₹237.7 Crore)
+Avg Monthly Revenue: ₹66,016,247
+Peak Month         : Oct 2025 — ₹72.3M (+9.4% above monthly average)
+Lowest Month       : Feb 2023 — ₹57.6M (post-January dip, expected pattern)
+Average Order Value: ₹15,844 (grew 6.3% from ₹15,498 in Jan 2023)
+Total Units Sold   : ~243,000 units
+
+Revenue grew at an implied CAGR of approximately 3.5% annually when controlling
+for seasonality — below-target for a high-growth retail environment. Management
+should set a 12-15% revenue growth target for 2026 through the levers identified
+in this report.
+
+RECOMMENDATION: Implement a monthly revenue target dashboard with traffic-light
+KPI indicators. Set monthly targets at ₹75M for H1 2026 and ₹85M for H2 2026.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FINDING 2 — REGIONAL INTELLIGENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Region  | Revenue (₹M) | Share % | Avg Order Value | Transactions
+  ---------|--------------|---------|-----------------|-------------
+  West     | ₹843.2M      | 35.5%   | ₹18,750         | 44,971
+  East     | ₹712.6M      | 30.0%   | ₹16,957         | 42,026
+  South    | ₹508.7M      | 21.4%   | ₹13,594         | 37,423
+  North    | ₹312.0M      | 13.1%   | ₹12,198         | 25,580
+
+West is the premium market: highest AOV at ₹18,750 indicates affluent customers
+willing to pay for premium products. East is the volume market: 42K transactions
+but lower AOV. South and North are opportunity markets.
+
+ACTION: West — defend with premium product launches + exclusive brand tie-ups.
+        North — invest ₹5-8M in regional marketing over 6 months. Target 15%
+        revenue lift bringing North share to 15.1% (+₹47M incremental revenue).
+        South — deploy value bundles and EMI schemes to increase AOV by 12%.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FINDING 3 — PRODUCT PORTFOLIO ANALYSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TOP 5 REVENUE GENERATORS (All-Time):
+  Rank | Product               | Revenue    | Orders | Avg Price
+  -----|------------------------|------------|--------|----------
+  1    | iPhone 15 Pro         | ₹240.6M    | 1,843  | ₹1,12,524
+  2    | MacBook Air M3        | ₹204.4M    | 1,307  | ₹1,35,363
+  3    | Samsung Galaxy S24    | ₹187.8M    | 2,125  | ₹77,753
+  4    | iPad Pro 12.9"        | ₹186.1M    | 1,435  | ₹1,13,109
+  5    | Dell XPS 15           | ₹141.7M    | 1,147  | ₹1,07,066
+
+These 5 products generate ₹960.6M — 40.4% of total company revenue.
+Inventory risk: stockout of any of these products could materially impact
+monthly P&L. Recommend 60-day rolling safety stock with supplier SLA enforcement.
+
+CATEGORY RISING vs FALLING:
+  RISING  ▲: Electronics (+7.8%), Beauty (+9.1%), Fashion (+8.8%), Accessories (+3.5%)
+  FALLING ▼: Appliances (-7.7%), Stationery (-7.4%), Grocery (-1.3%)
+  STABLE  →: Furniture (+2.0%), Sports (+0.8%), Toys (+2.6%)
+
+ACTION: Phase out bottom 30% of Stationery and Appliances SKUs by Q2 2026.
+        Launch 15 new Beauty products and 10 new Fashion SKUs in Q1 2026.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FINDING 4 — DIGITAL CHANNEL STRATEGY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Online revenue share trajectory:
+  Jan 2023: 35.3%  →  Jun 2024: 48.2%  →  Jun 2025: 50.7%  →  Dec 2025: 54.9%
+
+Online crossed offline for the first time in June 2025 — a historic inflection
+point. Online revenue is growing at ~7% YoY vs offline at ~1% YoY.
+
+PAYMENT MODE DISTRIBUTION:
+  UPI          : 35%  ← dominant and growing (mobile-first India)
+  Credit Card  : 28%  ← high AOV transactions, reward programme potential
+  Cash         : 22%  ← declining, primarily offline
+  Net Banking  : 15%  ← declining, being displaced by UPI
+
+ACTIONS:
+  • Invest ₹10-15M in e-commerce platform enhancement (speed, personalization)
+  • Build UPI-first checkout experience with 1-click repeat purchase
+  • Launch credit card co-branded rewards for orders >₹25,000
+  • Reduce cash handling infrastructure by 20% as cash share declines
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FINDING 5 — CUSTOMER INTELLIGENCE & RETENTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Total Unique Customers: 12,000
+Loyal (>10 purchases): 6,251  (52.1% repeat rate — exceptional)
+Top Spender (CUST00406): ₹17.3 Lakh | 67 purchases over 3 years
+Avg Loyal Customer Spend: ~₹380,000 over analysis period
+
+LOYALTY TIER FRAMEWORK (Recommended):
+  Tier     | Spend Threshold | Benefits
+  ---------|-----------------|----------------------------------------------------
+  Platinum | ₹5,00,000+     | Dedicated RM, free express delivery, exclusive access
+  Gold     | ₹2,00,000+     | Priority support, 5% cashback, early access
+  Silver   | ₹1,00,000+     | Free standard delivery, 2% cashback, monthly offers
+  Bronze   | ₹0+            | Birthday discount, welcome bonus, newsletter
+
+ACTION: Launch loyalty programme by Q2 2026. Expected impact: 8-12% increase in
+repeat purchase frequency among top 1,000 customers = ~₹35M incremental revenue.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FINDING 6 — SEASONAL INTELLIGENCE & PLANNING CALENDAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HIGH SEASON (Index > 105% of monthly average):
+  October   — Diwali, festival gifting, electronics spike
+  November  — Post-Diwali clearance + early Christmas gifting
+  May       — Summer demand (sports, beverages, fashion)
+  August    — Independence Day + Back-to-School
+
+LOW SEASON (Index < 95%):
+  January   — Post-festival hangover, budget reset
+  February  — Short month, lowest transaction volume
+  July      — Monsoon slowdown, reduced footfall
+
+2026 MARKETING CALENDAR RECOMMENDATIONS:
+  January   — Clearance + Republic Day sale (target 15% above 2025 January)
+  March-May — IPL season + Summer collections launch
+  August    — Independence Day mega sale (pre-stock by July 15)
+  October 1 — Begin Diwali campaign (45 days pre-event)
+  November  — Black Friday/Cyber Monday (new initiative, high online potential)
+  December  — Year-End gifting + New Year countdown sale
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  STRATEGIC RECOMMENDATIONS SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Priority | Initiative                            | Revenue Impact | Timeline
+---------|---------------------------------------|----------------|----------
+HIGH     | North region marketing investment     | +₹47M          | Q1-Q2 2026
+HIGH     | VIP Loyalty Programme launch          | +₹35M          | Q2 2026
+HIGH     | Beauty & Fashion assortment expansion | +₹28M          | Q1 2026
+MEDIUM   | Online UX & checkout optimization    | +₹22M          | Q2 2026
+MEDIUM   | Diwali early campaign (Oct 1 launch)  | +₹18M          | Sep 2026
+MEDIUM   | Appliances/Stationery SKU pruning     | +₹12M margin   | Q1 2026
+LOW      | Credit card co-brand programme        | +₹15M LTV      | Q3 2026
+
+Total Identified Revenue Opportunity: ₹177M+ over 12 months
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"The data tells a clear story: this is a business with strong bones, a deeply
+loyal customer base, and significant white space for growth. The question is
+not whether to grow, but how fast and through which levers."
+
+                          — Prepared by Senior Data Analyst
+                            Red & White Skill Education
+                            Business Case Study | Practical Exam
+
+================================================================================
+  END OF EXECUTIVE_REPORT.txt
+================================================================================

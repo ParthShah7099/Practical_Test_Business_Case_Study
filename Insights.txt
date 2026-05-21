@@ -1,0 +1,50 @@
+================================================================================
+  INSIGHTS.TXT — KEY BUSINESS FINDINGS
+  Project: Sales Uplift: Strategy Insights from Multi-Region Retail Data
+  Analyst: Red & White Skill Education | Practical Exam Submission
+  Dataset: RetailTransactions.csv | 150,000 rows | Jan 2023 – Dec 2025
+================================================================================
+
+INSIGHT 1 — REVENUE LEADERSHIP
+• West region is the top revenue contributor at 35.5% (₹843M), followed by East
+  at 30% (₹713M). Together they represent 65.5% of total revenue. North (13.1%)
+  is significantly underpenetrated and represents the highest growth opportunity.
+
+INSIGHT 2 — ELECTRONICS DOMINANCE
+• Electronics is the single largest category at ₹1.46B (61% of total revenue).
+  iPhone 15 Pro, MacBook Air M3, and Samsung Galaxy S24 alone drive ₹632M.
+  These 3 products represent 26.6% of all company revenue from 7.6% of orders.
+
+INSIGHT 3 — DIGITAL CHANNEL SHIFT
+• Online's revenue share grew from 35.3% (Jan 2023) to 54.9% (Dec 2025) —
+  a 19.6 percentage-point shift in 3 years. Online surpassed offline in revenue
+  for the first time in June 2025. This structural shift demands immediate
+  investment in digital infrastructure and fulfillment capability.
+
+INSIGHT 4 — RISING CATEGORIES
+• Beauty (+9.1%), Fashion (+8.8%), and Electronics (+7.8%) are the three
+  fastest-growing categories by 3-year CAGR. These verticals should receive
+  25-30% larger assortment expansion and priority digital advertising placement
+  in the Q3 campaign calendar.
+
+INSIGHT 5 — FALLING CATEGORIES
+• Appliances (-7.7%) and Stationery (-7.4%) are in confirmed structural decline.
+  Recommended action: reduce SKU count by 35%, halt new product onboarding in
+  these categories, and reallocate shelf space and marketing budget to
+  Beauty and Sports which show superior momentum.
+
+INSIGHT 6 — LOYAL CUSTOMER GOLDMINE
+• 6,251 customers (52.1% of 12,000-customer base) purchased more than 10 times,
+  generating disproportionately high lifetime value. Top 10 customers alone
+  contributed ₹15.3M in total spend. A tiered VIP loyalty programme (Bronze /
+  Silver / Gold / Platinum) can extend tenure and increase purchase frequency.
+
+INSIGHT 7 — SEASONAL REVENUE SPIKES
+• October-December consistently outperforms all other quarters by 18-25%
+  (Diwali, Christmas, Year-End). Pre-stocking 45 days ahead and launching
+  targeted promotions in Week 1 of October can capture early-season demand
+  and reduce stockout risk on high-velocity SKUs.
+
+================================================================================
+  END OF INSIGHTS.TXT
+================================================================================
